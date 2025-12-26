@@ -4,8 +4,8 @@ const portfolioData = {
         "title": "Full Stack Developer",
         "bio": "ااااااااااىلارتابعغفنلبتالت. Specialized in finding technical solutions for complex problems.",
         "email": "contact@example.com",
-        "github": "github.com/saeed",
-        "linkedin": "linkedin.com/in/saeed"
+        "github": "github.com/biqc-s",
+        "linkedin": "linkedin.com/in/saeedj"
     },
     "skills": [
         "JavaScript (ES6+)",
@@ -42,3 +42,4 @@ const portfolioData = {
         }
     ]
 };
+
