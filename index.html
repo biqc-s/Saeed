@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saeed | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons (Optional, using CDN) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Intro Terminal -->
+    <div id="terminal-intro">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+            <div class="terminal-body" id="terminal-text">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <main id="main-content" class="container">
+
+        <header style="text-align: center; margin-bottom: 50px;">
+            <h1 id="nav-name" style="font-size: 3rem; margin-bottom: 10px;"></h1>
+            <p id="nav-title" style="color: var(--accent-color); font-size: 1.2rem;"></p>
+        </header>
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <p id="about-text" style="font-size: 1.1rem; color: var(--secondary-color);"></p>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="grid" id="skills-grid">
+                <!-- Skills injected by JS -->
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="grid" id="experience-grid">
+                <!-- Experience injected by JS -->
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="grid" id="projects-grid">
+                <!-- Projects injected by JS -->
+            </div>
+        </section>
+
+        <footer>
+            <div id="social-links">
+                <!-- Links injected by JS -->
+            </div>
+            <p style="margin-top: 20px;">&copy; <span id="year"></span> Built with Code.</p>
+        </footer>
+
+    </main>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
