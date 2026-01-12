@@ -95,6 +95,37 @@ function populateData() {
     document.getElementById('about-text').textContent = data.personalInfo.bio;
     document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Services
+    const servicesGrid = document.getElementById('services-grid');
+    data.services.forEach(service => {
+        const div = document.createElement('div');
+        div.className = 'card service-card';
+        div.innerHTML = `
+            <i class="${service.icon}"></i>
+            <h3>${service.title}</h3>
+            <p style="color: var(--secondary-color); margin: 15px 0;">${service.description}</p>
+            <ul>
+                ${service.features.map(feature => `<li>${feature}</li>`).join('')}
+            </ul>
+        `;
+        servicesGrid.appendChild(div);
+    });
+
+    // Packages
+    const packagesGrid = document.getElementById('packages-grid');
+    data.packages.forEach(pkg => {
+        const div = document.createElement('div');
+        div.className = 'package-card' + (pkg.recommended ? ' recommended' : '');
+        div.innerHTML = `
+            <h3>${pkg.name}</h3>
+            <div class="package-price">${pkg.price}</div>
+            <ul>
+                ${pkg.features.map(feature => `<li>${feature}</li>`).join('')}
+            </ul>
+        `;
+        packagesGrid.appendChild(div);
+    });
+
     // Skills
     const skillsGrid = document.getElementById('skills-grid');
     data.skills.forEach(skill => {
@@ -132,6 +163,11 @@ function populateData() {
         projGrid.appendChild(div);
     });
 
+    // Contact Info
+    document.getElementById('contact-email').textContent = data.personalInfo.email;
+    document.getElementById('contact-github').textContent = data.personalInfo.github;
+    document.getElementById('contact-linkedin').textContent = data.personalInfo.linkedin;
+
     // Social Links
     const socialDiv = document.getElementById('social-links');
     const links = [
@@ -150,6 +186,53 @@ function populateData() {
             a.innerHTML = `<i class="${link.icon}"></i> <span style="font-size: 0.8rem; display: block; margin-top: 5px;">${link.name}</span>`;
             socialDiv.appendChild(a);
         }
+    });
+
+    // Setup Contact Form
+    setupContactForm();
+}
+
+function setupContactForm() {
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = {
+            name: document.getElementById('name').value,
+            email: document.getElementById('email').value,
+            service: document.getElementById('service').value,
+            message: document.getElementById('message').value
+        };
+
+        // Show loading state
+        const submitBtn = form.querySelector('.submit-btn');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+
+        // Simulate form submission (replace with actual backend call)
+        setTimeout(() => {
+            // Reset button
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+
+            // Show success message
+            status.className = 'form-status success';
+            status.textContent = 'Thank you! Your message has been sent successfully. I will get back to you soon.';
+
+            // Reset form
+            form.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                status.style.display = 'none';
+            }, 5000);
+
+            // Log form data (for demonstration)
+            console.log('Form submitted:', formData);
+        }, 1500);
     });
 }
 
